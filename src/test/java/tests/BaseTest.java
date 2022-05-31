@@ -1,5 +1,6 @@
 package tests;
 
+
 import com.codeborne.selenide.Configuration;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import lombok.extern.log4j.Log4j2;
@@ -14,6 +15,8 @@ import pages.HomePage;
 import pages.LoginPage;
 import utils.PropertyReader;
 
+//TODO почистить импорты
+//TODO удалить Selenide и несиаопьзуемые либы из pom.xml
 import java.time.Duration;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
@@ -33,6 +36,7 @@ public class BaseTest {
     public static final String user = utils.PropertyReader.getProperty("user");
     public static final String password = utils.PropertyReader.getProperty("password");
 
+    //TODO либо удалить лишнее либбо добавить считывание параметра
     @Parameters({"browser"})
     @BeforeMethod(description = "Opening the browser")
     public void setup(@Optional("chrome") String browser, ITestContext testContext) {

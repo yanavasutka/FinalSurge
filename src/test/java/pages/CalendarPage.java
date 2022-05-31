@@ -13,6 +13,7 @@ import java.util.List;
 @Log4j2
 public class CalendarPage extends BasePage {
 
+    //TODO НЕ КОМПИЛИТСЯ
     public static final By TITLE = By.id("dpMonth"),
             QUICK_ADD_BUTTON = By.id("QuickAddToggle"),
             WORKOUT_LIBRARY_BUTTON = By.id("WorkoutLibAdd"),

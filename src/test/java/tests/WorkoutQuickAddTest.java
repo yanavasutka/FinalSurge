@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 @Log4j2
 public class WorkoutQuickAddTest extends BaseTest {
 
+    //TODO не компилится и убрать chain of invocations
     @Test(description = "Quick add workout test")
     public void workoutQuickAddTest() {
 

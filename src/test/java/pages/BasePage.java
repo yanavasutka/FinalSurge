@@ -20,6 +20,7 @@ public abstract class BasePage {
 
     public abstract boolean isPageOpened();
 
+    //TODO логирование
     public boolean isElementPresent(By locator) {
         try {
             driver.findElement(locator);

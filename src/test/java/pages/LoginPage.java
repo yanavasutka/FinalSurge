@@ -7,9 +7,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LoginPage extends BasePage {
 
-    public static final By EMAIL_INPUT = By.id("login_name"),
+    public static final By
+            EMAIL_INPUT = By.id("login_name"),
             PASSWORD_INPUT = By.id("login_password"),
             LOGIN_BUTTON = By.cssSelector("[type = 'submit']"),
+    //TODO css?
             ERROR_MESSAGE = By.xpath("//div[@class='alert alert-error']"),
             EMPTY_EMAIL_MESSAGE = By.xpath("//div[@class='formpad']//label[contains(text(), 'e-mail')]"),
             EMPTY_PASSWORD_MESSAGE = By.xpath("//div[@class='formpad']//label[contains(text(), 'password.')]");

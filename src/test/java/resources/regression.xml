@@ -10,4 +10,5 @@
             <class name="tests.LoginTest"/>
         </classes>
     </test>
+    <!-- TODO: перенести всю папку ресурсы в src/test -->
 </suite>

@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 public class TestListener implements ITestListener {
 
+    //TODO вместо sout логирование
     @Override
     public void onTestStart(ITestResult iTestResult) {
         System.out.println(String.format("======================================== STARTING TEST %s ========================================", iTestResult.getName()));
