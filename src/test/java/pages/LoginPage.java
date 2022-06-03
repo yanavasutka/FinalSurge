@@ -1,15 +1,17 @@
 package pages;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+@Log4j2
 public class LoginPage extends BasePage {
 
     public static final By EMAIL_INPUT = By.id("login_name"),
             PASSWORD_INPUT = By.id("login_password"),
-            LOGIN_BUTTON = By.cssSelector("[type = 'submit']"),
+            LOGIN_BUTTON = By.cssSelector("[type ='submit']"),
             ERROR_MESSAGE = By.xpath("//div[@class='alert alert-error']"),
             EMPTY_EMAIL_MESSAGE = By.xpath("//div[@class='formpad']//label[contains(text(), 'e-mail')]"),
             EMPTY_PASSWORD_MESSAGE = By.xpath("//div[@class='formpad']//label[contains(text(), 'password.')]");
@@ -29,9 +31,9 @@ public class LoginPage extends BasePage {
     }
 
     @Step("Log in by user {user} using password {password}")
-    public void login (String user, String password) {
-        driver.findElement(EMAIL_INPUT).sendKeys(user);
-        driver.findElement(PASSWORD_INPUT).sendKeys(password);
+    public void login (String USER, String PASSWORD) {
+        driver.findElement(EMAIL_INPUT).sendKeys(USER);
+        driver.findElement(PASSWORD_INPUT).sendKeys(PASSWORD);
         driver.findElement(LOGIN_BUTTON).click();
     }
 
