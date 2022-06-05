@@ -2,8 +2,6 @@ package wrappers;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class Input {
 
@@ -18,7 +16,6 @@ public class Input {
 
     public void write(String text) {
         System.out.println(String.format("Writing text '%s' into input with label %s", text, label));
-        //JS set style
         driver.findElement(By.xpath(String.format(inputLocator, label))).sendKeys(text);
     }
 

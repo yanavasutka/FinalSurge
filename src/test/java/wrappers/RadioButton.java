@@ -3,19 +3,19 @@ package wrappers;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class TextArea {
+public class RadioButton {
 
     WebDriver driver;
     String label;
-    String textAreaLocator = "//label[contains(text(),'%s')]/ancestor::div/textarea";
+    String RADIO_BUTTON = "//label[contains(.,'%s')]/input";
 
-    public TextArea(WebDriver driver, String label) {
+    public RadioButton(WebDriver driver, String label) {
         this.driver = driver;
         this.label = label;
     }
 
-    public void write(String text) {
+    public void selectButton(String text) {
         System.out.println(String.format("Writing text '%s' into input with label %s", text, label));
-        driver.findElement(By.xpath(String.format(textAreaLocator, label))).sendKeys(text);
+        driver.findElement(By.xpath(String.format(RADIO_BUTTON, label))).click();
     }
 }
