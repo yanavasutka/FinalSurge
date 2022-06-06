@@ -13,7 +13,7 @@ public class CalendarPage extends BasePage {
     public static final By TITLE = By.id("dpMonth"),
             QUICK_ADD_BUTTON = By.id("QuickAddToggle"),
             FULL_ADD_BUTTON = By.id("FullAddBtn"),
-            QUICK_MESSAGE = By.cssSelector(".alert"),
+            QUICK_MESSAGE = By.xpath("//div[@class='alert alert-error']"), //.alert
             OK_DELETE_BUTTON = By.xpath("//a[contains(.,'OK')]");
     public static final String WORKOUT_BUTTON = "//div[contains(text(),'%s')]";
     public static final String DELETE_BUTTON = "//div[contains(text(),'%s')]/ancestor::div[contains(@class , 'dropdown')]/ul//li/a[contains(@class, 'quick-delete')]";

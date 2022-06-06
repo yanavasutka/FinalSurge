@@ -4,7 +4,7 @@
 
 _Tests:_
 
-Login tests:
+_Login tests:_
 
   - Login test with valid Email and Password
 
@@ -25,15 +25,22 @@ Login tests:
 _Add Workout tests:_
 
  - Add Workout using the Quick Add button and filling in the Quick Add Workout form with valid data
+
  - Delete button test on the Calendar
+
  - Add Workout using the Quick Add button and filling in the Quick Add Workout form with invalid data and get the error message
+
  - Add Workout using the Full Add Button filling in the Quick Add Workout form with valid data
+
  - Add Workout using the Full Add button and filling in the Quick Add Workout form with invalid data and get the error message
 
 _Calculator tests:_
 
  - Workout Calculators button test on the Calendar page
+
  - Fill in the Intensity calculator fields with valid data and get the correct results
+
  - Fill in the Intensity calculator fields with invalid data and get the error message
+
  - Calculate Paces button test
   
