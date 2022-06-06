@@ -13,7 +13,7 @@ public class CalendarPage extends BasePage {
     public static final By TITLE = By.id("dpMonth"),
             QUICK_ADD_BUTTON = By.id("QuickAddToggle"),
             FULL_ADD_BUTTON = By.id("FullAddBtn"),
-            QUICK_ERROR_MESSAGE = By.cssSelector(".alert"),
+            QUICK_MESSAGE = By.cssSelector(".alert"),
             OK_DELETE_BUTTON = By.xpath("//a[contains(.,'OK')]");
     public static final String WORKOUT_BUTTON = "//div[contains(text(),'%s')]";
     public static final String DELETE_BUTTON = "//div[contains(text(),'%s')]/ancestor::div[contains(@class , 'dropdown')]/ul//li/a[contains(@class, 'quick-delete')]";
@@ -51,15 +51,15 @@ public class CalendarPage extends BasePage {
     }
 
     @Step("Getting the error message")
-    public String getErrorMessage() {
-        log.info("Getting the error message {}", QUICK_ERROR_MESSAGE);
-        return driver.findElement(QUICK_ERROR_MESSAGE).getText();
+    public String getMessage() {
+        log.info("Getting the error message {}", QUICK_MESSAGE);
+        return driver.findElement(QUICK_MESSAGE).getText();
     }
 
     @Step("Validation of the error message when adding a workout with invalid data")
-    public void validateErrorMessage(String correctErrorMessage) {
-        log.info("Validation of the error message {} when adding a workout with invalid data", QUICK_ERROR_MESSAGE );
-        assertEquals(getErrorMessage(), correctErrorMessage, "The error message isn't correct");
+    public void validateErrorMessage(String correctMessage) {
+        log.info("Validation of the error message {} when adding a workout with invalid data", QUICK_MESSAGE );
+        assertEquals(getMessage(), correctMessage, "The error message isn't correct");
     }
 }
 
