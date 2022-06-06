@@ -28,32 +28,32 @@ public class WorkoutFullAddModal extends BasePage {
     }
 
     @Step("Filling in the RUN Workout Full Add form")
-    public void fillInRunWorkoutFullAddForm (WorkoutFullAdd workoutFullAdd) {
-        log.info("Filling in the RUNWorkout Full Add form");
+    public void fillInRunWorkoutFullAddForm (WorkoutFullAdd workoutAdd) {
+        log.info("Filling in the RUN Workout Full Add form");
         driver.findElement(WORKOUT_DATE).clear();
-        new Input(driver, "WorkoutDate").write(workoutFullAdd.getWorkoutDate());
-        new Input(driver, "WorkoutTime").write(workoutFullAdd.getTimeOfDay());
-        new Input(driver, "Name").write(workoutFullAdd.getWorkoutName());
-        new TextArea(driver, "Workout Description").write(workoutFullAdd.getWorkoutDescription());
+        new Input(driver, "WorkoutDate").write(workoutAdd.getWorkoutDate());
+        new Input(driver, "WorkoutTime").write(workoutAdd.getTimeOfDay());
+        new Input(driver, "Name").write(workoutAdd.getWorkoutName());
+        new TextArea(driver, "Workout Description").write(workoutAdd.getWorkoutDescription());
         clickOnThePlannedDistanceButton();
-        new Input(driver, "PDistance").write(workoutFullAdd.getPlannedDistance());
-        new DropDown(driver, "PDistType").select(workoutFullAdd.getPlannedDistanceType());
-        new Input(driver, "PDuration").write(workoutFullAdd.getPlannedDuration());
-        new Input(driver, "Distance").write(workoutFullAdd.getDistance());
-        new DropDown(driver, "DistType").select(workoutFullAdd.getDistanceType());
-        new Input(driver, "Duration").write(workoutFullAdd.getDuration());
+        new Input(driver, "PDistance").write(workoutAdd.getPlannedDistance());
+        new DropDown(driver, "PDistType").select(workoutAdd.getPlannedDistanceType());
+        new Input(driver, "PDuration").write(workoutAdd.getPlannedDuration());
+        new Input(driver, "Distance").write(workoutAdd.getDistance());
+        new DropDown(driver, "DistType").select(workoutAdd.getDistanceType());
+        new Input(driver, "Duration").write(workoutAdd.getDuration());
         driver.findElement(WORKOUT_PACE).clear();
-        new Input(driver, "Pace").write(workoutFullAdd.getPace());
-        new DropDown(driver, "PaceType").select(workoutFullAdd.getPaceType());
+        new Input(driver, "Pace").write(workoutAdd.getPace());
+        new DropDown(driver, "PaceType").select(workoutAdd.getPaceType());
         clickOnTheMarkAsRaceButton();
-        new Input(driver, "OverallPlace").write(workoutFullAdd.getOverallPlace());
-        new Input(driver, "AgeGroupPlace").write(workoutFullAdd.getAgeGroupPlace());
-        new RadioButton(driver, "Normal").selectButton(workoutFullAdd.getHowIFelt());
-        new DropDown(driver, "PerEffort").select(workoutFullAdd.getPerceivedEffort());
-        new Input(driver, "MinHR").write(workoutFullAdd.getMinHR());
-        new Input(driver, "AvgHR").write(workoutFullAdd.getAvgHR());
-        new Input(driver, "MaxHR").write(workoutFullAdd.getMaxHR());
-        new Input(driver, "kCal").write(workoutFullAdd.getCaloriesBurned());
+        new Input(driver, "OverallPlace").write(workoutAdd.getOverallPlace());
+        new Input(driver, "AgeGroupPlace").write(workoutAdd.getAgeGroupPlace());
+        new RadioButton(driver, "Normal").selectButton(workoutAdd.getHowIFelt());
+        new DropDown(driver, "PerEffort").select(workoutAdd.getPerceivedEffort());
+        new Input(driver, "MinHR").write(workoutAdd.getMinHR());
+        new Input(driver, "AvgHR").write(workoutAdd.getAvgHR());
+        new Input(driver, "MaxHR").write(workoutAdd.getMaxHR());
+        new Input(driver, "kCal").write(workoutAdd.getCaloriesBurned());
         clickOnTheAddWorkoutButton();
     }
 
@@ -96,14 +96,17 @@ public class WorkoutFullAddModal extends BasePage {
     }
 
     public void clickOnThePlannedDistanceButton() {
+        log.info("Clicking on the Planned Distance Button {}", PLANNED_DIST_DURATION_BUTTON);
         driver.findElement(PLANNED_DIST_DURATION_BUTTON).click();
     }
 
     public void clickOnTheMarkAsRaceButton() {
+        log.info("Clicking on the Mark As Race Button {}", MARK_AS_RACE_BUTTON);
         driver.findElement(MARK_AS_RACE_BUTTON).click();
     }
 
     public void clickOnTheAddWorkoutButton() {
+        log.info("Clicking on the Add Workout Button {}", ADD_WORKOUT_BUTTON);
         driver.findElement(ADD_WORKOUT_BUTTON).click();
     }
 }

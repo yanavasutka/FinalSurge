@@ -1,13 +1,15 @@
 package wrappers;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+@Log4j2
 public class RadioButton {
 
     WebDriver driver;
     String label;
-    String RADIO_BUTTON = "//label[contains(.,'%s')]/input";
+    String radioButtonLocator = "//label[contains(.,'%s')]/input";
 
     public RadioButton(WebDriver driver, String label) {
         this.driver = driver;
@@ -15,7 +17,7 @@ public class RadioButton {
     }
 
     public void selectButton(String text) {
-        System.out.println(String.format("Writing text '%s' into input with label %s", text, label));
-        driver.findElement(By.xpath(String.format(RADIO_BUTTON, label))).click();
+        log.info("Choosing the option {} from the RadioButton element with the label {}", text, label);
+        driver.findElement(By.xpath(String.format(radioButtonLocator, label))).click();
     }
 }

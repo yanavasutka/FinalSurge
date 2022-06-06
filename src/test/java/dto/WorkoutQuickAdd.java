@@ -8,6 +8,8 @@ import lombok.Data;
 @Data
 @Builder
 public class WorkoutQuickAdd {
+
+    String date;
     String workoutDate;
     String timeOfDay;
     String activityType;
