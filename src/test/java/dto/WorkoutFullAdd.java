@@ -10,6 +10,7 @@ import lombok.Data;
 public class WorkoutFullAdd {
     String workoutDate;
     String timeOfDay;
+    String activityType;
     String workoutName;
     String workoutDescription;
     String plannedDistance;
@@ -36,4 +37,5 @@ public class WorkoutFullAdd {
     String avgHR;
     String maxHR;
     String caloriesBurned;
+    String postWorkoutNotesResults;
 }

@@ -26,35 +26,35 @@ public class LoginPage extends BasePage {
 
     @Step("Opening login page")
     public void open() {
+        log.info("Opening login page {}", BASE_URL + "login.cshtml");
         driver.get(BASE_URL + "login.cshtml");
         wait.until(ExpectedConditions.visibilityOfElementLocated(LOGIN_BUTTON));
     }
 
     @Step("Log in by user {user} using password {password}")
-    public void login (String USER, String PASSWORD) {
-        driver.findElement(EMAIL_INPUT).sendKeys(USER);
-        driver.findElement(PASSWORD_INPUT).sendKeys(PASSWORD);
+    public void login (String user, String password) {
+        log.info("Log in by user {} using password {}", user, password);
+        driver.findElement(EMAIL_INPUT).sendKeys(user);
+        driver.findElement(PASSWORD_INPUT).sendKeys(password);
         driver.findElement(LOGIN_BUTTON).click();
     }
 
     @Step("Getting the error message about invalid data")
     public String getErrorMessage() {
+        log.info("Getting the error message {} about invalid data", ERROR_MESSAGE);
         return driver.findElement(ERROR_MESSAGE).getText();
     }
 
     @Step("Getting the error message about the empty email field")
     public String getEmptyEmailMessage() {
+        log.info("Getting the error message {} about the empty email field", EMPTY_EMAIL_MESSAGE);
         return driver.findElement(EMPTY_EMAIL_MESSAGE).getText();
     }
 
     @Step("Getting the error message about the empty password field")
     public String getEmptyPasswordMessage() {
+        log.info("Getting the error message {} about the empty password field", EMPTY_PASSWORD_MESSAGE);
         return driver.findElement(EMPTY_PASSWORD_MESSAGE).getText();
-    }
-
-    @Step("Checking if the LOGIN button is displayed")
-    public boolean loginButtonIsDisplayed() {
-        return driver.findElement(LOGIN_BUTTON).isDisplayed();
     }
 }
 

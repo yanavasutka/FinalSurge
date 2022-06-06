@@ -2,12 +2,27 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Regression Suite" parallel="tests" thread-count="2">
     <listeners>
-        <listener class-name="tests.AnnotationTransformer"/>
-        <listener class-name="tests.TestListener"/>
+        <listener class-name="tests.base.AnnotationTransformer"/>
+        <listener class-name="tests.base.TestListener"/>
     </listeners>
     <test name="Login">
         <classes>
             <class name="tests.LoginTest"/>
+        </classes>
+    </test>
+    <test name="WorkoutQuickAdd">
+        <classes>
+            <class name="tests.WorkoutQuickAddTest"/>
+        </classes>
+    </test>
+    <test name="WorkoutFullAdd">
+        <classes>
+            <class name="tests.WorkoutFullAddTest"/>
+        </classes>
+    </test>
+    <test name="WorkoutCalculator">
+        <classes>
+            <class name="tests.WorkoutCalculatorTest"/>
         </classes>
     </test>
 </suite>

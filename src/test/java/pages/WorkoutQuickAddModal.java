@@ -13,13 +13,13 @@ import wrappers.TextArea;
 public class WorkoutQuickAddModal extends BasePage {
 
     public static final By MODAL_TITLE = By.id("WorkoutAddHeader"),
-            WORKOUT_DATE = By.id("WorkoutDate"),
-            WORKOUT_PACE = By.id("Pace"),
-            PLANNED_DIST_DURATION_BUTTON = By.id("PlannedWorkout"),
-            MARK_AS_RACE_BUTTON = By.id("IsRace"),
             SAVE_TO_LIBRARY_BUTTON = By.id("SaveLibrary"),
+            WORKOUT_DATE = By.id("WorkoutDate"),
+            MARK_AS_RACE_BUTTON = By.id("IsRace"),
+            PLANNED_DIST_DURATION_BUTTON = By.id("PlannedWorkout"),
+            WORKOUT_PACE = By.id("Pace"),
             ADD_WORKOUT_BUTTON = By.id("saveButton");
-
+    
     public WorkoutQuickAddModal(WebDriver driver) {
         super(driver);
     }
@@ -29,7 +29,7 @@ public class WorkoutQuickAddModal extends BasePage {
     }
 
     @Step("Filling in the Workout Quick Add form")
-    public void fillInWorkoutQuickAddForm(WorkoutQuickAdd workoutQuickAdd) {
+    public void fillInWorkoutAddForm(WorkoutQuickAdd workoutQuickAdd) {
         log.info("Filling in the Workout Quick Add form");
         driver.findElement(WORKOUT_DATE).clear();
         new Input(driver, "WorkoutDate").write(workoutQuickAdd.getWorkoutDate());
@@ -57,20 +57,23 @@ public class WorkoutQuickAddModal extends BasePage {
         clickOnTheAddWorkoutButton();
     }
 
-    public void clickOnThePlannedDistanceButton() {
-        driver.findElement(PLANNED_DIST_DURATION_BUTTON).click();
-    }
-
     public void clickOnTheSaveToLibraryButton() {
+        log.info("Clicking on the Save To Library Button {}", SAVE_TO_LIBRARY_BUTTON);
         driver.findElement(SAVE_TO_LIBRARY_BUTTON).click();
     }
 
+    public void clickOnThePlannedDistanceButton() {
+        log.info("Clicking on the Planned Distance Button {}", PLANNED_DIST_DURATION_BUTTON);
+        driver.findElement(PLANNED_DIST_DURATION_BUTTON).click();
+    }
+
     public void clickOnTheMarkAsRaceButton() {
+        log.info("Clicking on the Mark As Race Button {}", MARK_AS_RACE_BUTTON);
         driver.findElement(MARK_AS_RACE_BUTTON).click();
     }
 
     public void clickOnTheAddWorkoutButton() {
+        log.info("Clicking on the Add Workout Button {}", ADD_WORKOUT_BUTTON);
         driver.findElement(ADD_WORKOUT_BUTTON).click();
     }
-
 }

@@ -10,9 +10,10 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import pages.*;
 import steps.LoginSteps;
-import steps.WorkoutCalculatorsSteps;
+import steps.WorkoutCalculatorSteps;
 import steps.WorkoutFullAddSteps;
 import steps.WorkoutQuickAddSteps;
+import tests.base.TestListener;
 
 import java.time.Duration;
 
@@ -25,17 +26,16 @@ public class BaseTest {
     HomePage homePage;
     CalendarPage calendarPage;
     LoginSteps loginSteps;
-    WorkoutQuickAddSteps workoutQuickAddSteps;
+    WorkoutQuickAddSteps WorkoutQuickAddSteps;
     WorkoutFullAddSteps workoutFullAddSteps;
     WorkoutFullAddPage workoutFullAddPage;
     WorkoutFullAddDetailsPage workoutFullAddDetailsPage;
-    WorkoutCalculatorsPage workoutCalculatorsPage;
-    WorkoutCalculatorsSteps workoutCalculatorsSteps;
+    WorkoutCalculatorSteps workoutCalculatorsSteps;
 
     public static final String INVALID_EMAIL = "bla@gmail.com";
     public static final String INVALID_PASSWORD = "/bla/";
-    public static final String USER = utils.PropertyReader.getProperty("user");
-    public static final String PASSWORD = utils.PropertyReader.getProperty("password");
+    public static final String user = utils.PropertyReader.getProperty("user");
+    public static final String password = utils.PropertyReader.getProperty("password");
 
 
     @BeforeMethod(description = "Opening the browser")
@@ -51,12 +51,11 @@ public class BaseTest {
         loginPage = new LoginPage(driver);
         calendarPage = new CalendarPage(driver);
         loginSteps = new LoginSteps(driver);
-        workoutQuickAddSteps = new WorkoutQuickAddSteps(driver);
+        WorkoutQuickAddSteps = new WorkoutQuickAddSteps(driver);
         workoutFullAddSteps = new WorkoutFullAddSteps(driver);
         workoutFullAddPage = new WorkoutFullAddPage(driver);
         workoutFullAddDetailsPage = new WorkoutFullAddDetailsPage(driver);
-        workoutCalculatorsPage = new WorkoutCalculatorsPage(driver);
-        workoutCalculatorsSteps = new WorkoutCalculatorsSteps(driver);
+        workoutCalculatorsSteps = new WorkoutCalculatorSteps(driver);
     }
 
     @AfterMethod(alwaysRun = true, description = "Closing the browser")

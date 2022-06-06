@@ -3,19 +3,17 @@ package pages;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import java.util.List;
+import static org.testng.Assert.assertEquals;
+
 
 @Log4j2
 public class CalendarPage extends BasePage {
 
-    public int theNumberOfWorkouts;
     public static final By TITLE = By.id("dpMonth"),
             QUICK_ADD_BUTTON = By.id("QuickAddToggle"),
             FULL_ADD_BUTTON = By.id("FullAddBtn"),
-            WORKOUT = By.cssSelector(".fc-event-activity"),
-            ERROR_MESSAGE = By.cssSelector(".alert"),
+            QUICK_ERROR_MESSAGE = By.cssSelector(".alert"),
             OK_DELETE_BUTTON = By.xpath("//a[contains(.,'OK')]");
     public static final String WORKOUT_BUTTON = "//div[contains(text(),'%s')]";
     public static final String DELETE_BUTTON = "//div[contains(text(),'%s')]/ancestor::div[contains(@class , 'dropdown')]/ul//li/a[contains(@class, 'quick-delete')]";
@@ -29,12 +27,6 @@ public class CalendarPage extends BasePage {
         return isElementPresent(TITLE);
     }
 
-    @Step("Opening calendar page")
-    public void open() {
-        driver.get(BASE_URL + "Calendar.cshtml");
-        wait.until(ExpectedConditions.visibilityOfElementLocated(TITLE));
-    }
-
     @Step("Adding a workout by clicking on the Quick Add button")
     public void clickOnTheQuickAddButton() {
         driver.findElement(QUICK_ADD_BUTTON).click();
@@ -43,12 +35,6 @@ public class CalendarPage extends BasePage {
     @Step("Adding a workout by clicking on the Full Add button")
     public void clickOnTheFullAddButton() {
         driver.findElement(FULL_ADD_BUTTON).click();
-    }
-
-    @Step("Getting the number of workouts on the calendar")
-    public void getTheNumberOfWorkouts() {
-        List<WebElement> workouts = driver.findElements(WORKOUT);
-        theNumberOfWorkouts = workouts.size();
     }
 
     @Step("Deleting a workout")
@@ -66,7 +52,14 @@ public class CalendarPage extends BasePage {
 
     @Step("Getting the error message")
     public String getErrorMessage() {
-        return driver.findElement(ERROR_MESSAGE).getText();
+        log.info("Getting the error message {}", QUICK_ERROR_MESSAGE);
+        return driver.findElement(QUICK_ERROR_MESSAGE).getText();
+    }
+
+    @Step("Validation of the error message when adding a workout with invalid data")
+    public void validateErrorMessage(String correctErrorMessage) {
+        log.info("Validation of the error message {} when adding a workout with invalid data", QUICK_ERROR_MESSAGE );
+        assertEquals(getErrorMessage(), correctErrorMessage, "The error message isn't correct");
     }
 }
 

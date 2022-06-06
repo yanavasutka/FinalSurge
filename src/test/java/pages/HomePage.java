@@ -24,13 +24,13 @@ public class HomePage extends BasePage{
 
     @Step("Logout by clicking on the LOGOUT button")
     public void clickOnTheLogoutButton() {
-        log.info("Logout by clicking on the LOGOUT button");
+        log.info("Logout by clicking on the LOGOUT button {}", LOGOUT_BUTTON);
         driver.findElement(LOGOUT_BUTTON).click();
     }
 
     @Step("Getting the successful logout message")
     public String getLogoutMessage() {
-        log.info("Getting the successful logout message");
+        log.info("Getting the successful logout message {}", LOGOUT_MESSAGE);
         return driver.findElement(LOGOUT_MESSAGE).getText();
     }
 
