@@ -31,7 +31,8 @@ public class WorkoutFullAddTest extends BaseTest{
         loginSteps.login(user, password);
         WorkoutFullAdd workoutAdd = WorkoutFullAddFactory.getBikeWorkoutWithInvalidData();
         workoutFullAddSteps.addBikeWorkoutWithInvalidData(workoutAdd);
-        workoutFullAddPage.validateErrorMessage("×\n" + "Please fix the following errors:\n" +
+        workoutFullAddPage.validateErrorMessage("×\n" +
+                "Please fix the following errors:\n" +
                 "*Please enter a value for Workout Date.\n" +
                 "*Please enter a valid Time of Day.\n" +
                 "*The Workout Name cannot be more than 200 characters.\n" +

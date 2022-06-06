@@ -4,6 +4,7 @@ import dto.WorkoutQuickAdd;
 import dto.WorkoutQuickAddFactory;
 import lombok.extern.log4j.Log4j2;
 import org.testng.annotations.Test;
+import tests.base.Retry;
 
 import static org.testng.Assert.assertTrue;
 
@@ -15,7 +16,8 @@ public class WorkoutQuickAddTest extends BaseTest {
         loginSteps.login(user, password);
         WorkoutQuickAdd workoutQuickAdd = WorkoutQuickAddFactory.getWorkoutWithValidData();
         WorkoutQuickAddSteps.addWorkoutWithValidData(workoutQuickAdd);
-        calendarPage.validateErrorMessage("×\n" + "*The workout was successfully saved to your Workout Library.");
+        calendarPage.validateErrorMessage("×\n" +
+                "*The workout was successfully saved to your Workout Library.");
         assertTrue(calendarPage.isPageOpened(), "Calendar page hasn't been opened");
     }
 
@@ -24,7 +26,8 @@ public class WorkoutQuickAddTest extends BaseTest {
         loginSteps.login(user, password);
         WorkoutQuickAdd workoutQuickAdd = WorkoutQuickAddFactory.getWorkoutWithInvalidData();
         WorkoutQuickAddSteps.addWorkoutWithInvalidData(workoutQuickAdd);
-        calendarPage.validateErrorMessage("×\n" + "Please fix the following errors:\n" +
+        calendarPage.validateErrorMessage("×\n" +
+                "Please fix the following errors:\n" +
                 "*Please select a valid Activity Type.\n" +
                 "*Please enter a value for Workout Date.\n" +
                 "*Please enter a valid Time of Day.\n" +
