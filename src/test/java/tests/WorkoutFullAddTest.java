@@ -27,7 +27,7 @@ public class WorkoutFullAddTest extends BaseTest{
     }
 
     @Test(description = "Creating of the BIKE workout with invalid data using the Full Add feature")
-    public void BikeWorkoutShouldBeNotAdded() {
+    public void BikeWorkoutShouldNotBeAdded() {
         loginSteps.login(user, password);
         WorkoutFullAdd workoutAdd = WorkoutFullAddFactory.getBikeWorkoutWithInvalidData();
         workoutFullAddSteps.addBikeWorkoutWithInvalidData(workoutAdd);

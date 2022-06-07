@@ -23,6 +23,7 @@
         <log4j-core.version>2.17.2</log4j-core.version>
         <javafaker.version>1.0.2</javafaker.version>
         <jackson-dataformat-yaml>2.13.3</jackson-dataformat-yaml>
+        <json.version>2.9.0</json.version>
         <suiteXmlFile>src/test/resources/regression.xml</suiteXmlFile>
     </properties>
 
@@ -115,6 +116,13 @@
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-yaml</artifactId>
             <version>2.13.3</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${json.version}</version>
         </dependency>
 
     </dependencies>
