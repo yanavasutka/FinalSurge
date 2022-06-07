@@ -6,7 +6,7 @@ import tests.base.Retry;
 
 public class WorkoutCalculatorTest extends BaseTest {
 
-    @Test(description = "Checking if the Intensity Calculator functions correctly when fields are filled in with valid data", retryAnalyzer = Retry.class)
+    @Test(description = "Checking if the Intensity Calculator functions correctly when fields are filled in with valid data")
     public void intensityCalculatorShouldCalculatePacesCorrectly () {
         loginSteps.login(user, password);
         WorkoutCalculator workoutCalculators = WorkoutCalculator.builder()
@@ -20,7 +20,7 @@ public class WorkoutCalculatorTest extends BaseTest {
                 "13:33 /mi", "11:25 /mi", "11:05 /mi", "10:37 /mi");
     }
 
-    @Test(description = "Checking if the Intensity Calculator shows an error message when mismatched data is selected and entered", retryAnalyzer = Retry.class)
+    @Test(description = "Checking if the Intensity Calculator shows an error message when mismatched data is selected and entered")
     public void intensityCalculatorShouldNotBeSuccessful () {
         loginSteps.login(user, password);
         WorkoutCalculator workoutCalculators = WorkoutCalculator.builder()

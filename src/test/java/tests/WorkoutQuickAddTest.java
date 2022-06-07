@@ -16,8 +16,7 @@ public class WorkoutQuickAddTest extends BaseTest {
         loginSteps.login(user, password);
         WorkoutQuickAdd workoutQuickAdd = WorkoutQuickAddFactory.getWorkoutWithValidData();
         WorkoutQuickAddSteps.addWorkoutWithValidData(workoutQuickAdd);
-        calendarPage.validateMessage("×\n" +
-                "*The workout was successfully saved to your Workout Library.");
+        calendarPage.successQuickAddWorkoutToLibraryText().isDisplayed();
         assertTrue(calendarPage.isPageOpened(), "Calendar page hasn't been opened");
     }
 
